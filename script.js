@@ -2,7 +2,7 @@
  * MindPulse — Interactive Client Logic & Analytics Engine
  */
 
-const API_URL = "http://127.0.0.1:8000/predict";
+const API_URL = "https://mental-health-score-vity.onrender.com";
 
 // DOM Elements
 const form = document.getElementById("wellnessForm");
