@@ -500,13 +500,20 @@ form.addEventListener("submit", async (event) => {
 
     // Troubleshooting advice
     recList.innerHTML = `
-      <li>Ensure your FastAPI server is running on <code>http://127.0.0.1:8000</code>.</li>
-      <li>Start the server with: <code>.\\myenv\\Scripts\\uvicorn.exe main:app --reload</code> in your terminal.</li>
-      <li>Check that your <code>Mental_health_model.pkl</code> file is in the project folder.</li>
-    `;
+    <li>Check that your deployed FastAPI backend is running.</li>
+    <li>Verify the backend URL:
+        <a href="https://mental-health-score-vity.onrender.com/"
+          target="_blank" rel="noopener noreferrer">
+          Open API
+        </a>
+    </li>
+    <li>Make sure CORS is configured to allow your deployed frontend.</li>
+    <li>Check your Render logs if the API or model fails to load.</li>`;
 
     if (error.message.includes("Failed to fetch")) {
-      showApiError("FastAPI backend is offline. Please start the server in your terminal: '.\\myenv\\Scripts\\uvicorn.exe main:app --reload'");
+      showApiError(
+        "Could not connect to the backend. Check the deployed API URL, backend status, and CORS settings."
+      );
     } else {
       showApiError(`Model API Error: ${error.message}`);
     }
@@ -523,7 +530,7 @@ async function checkBackendHealth() {
   const text = pill.querySelector(".status-text");
   
   try {
-    const res = await fetch("http://127.0.0.1:8000/", { method: "GET" });
+    const res = await fetch("https://mental-health-score-vity.onrender.com/", { method: "GET" });
     if (res.ok) {
       dot.style.backgroundColor = "var(--color-success)";
       dot.style.boxShadow = "0 0 10px var(--color-success)";
@@ -543,4 +550,3 @@ setInterval(checkBackendHealth, 10000);
 
 // Initial Budget Calculation
 updateBudgetVisuals();
-
