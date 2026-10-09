@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0d0f1d" />
+  <title>MindPulse — AI Mental Wellness & Social Media Analytics</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Ambient glow spheres -->
+  <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
+  <div class="glow-orb glow-orb-2" aria-hidden="true"></div>
+  <div class="glow-orb glow-orb-3" aria-hidden="true"></div>
+  <div class="bg-grid-pattern" aria-hidden="true"></div>
+
+  <div class="app-wrapper">
+    <!-- Navigation Header -->
+    <header class="app-header">
+      <div class="brand-container">
+        <div class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="10" fill="url(#logo-grad)" />
+            <path d="M8 17C10.5 17 11.5 10 13.5 10C15.5 10 16.5 22 18.5 22C20.5 22 21.5 15 24 15" stroke="white"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            <defs>
+              <linearGradient id="logo-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#6366F1" />
+                <stop offset="0.5" stop-color="#8B5CF6" />
+                <stop offset="1" stop-color="#EC4899" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Mind<strong>Pulse</strong></span>
+          <span class="brand-badge">AI Predictive Health</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="api-status-pill" id="apiStatusPill">
+          <span class="status-pulse-dot"></span>
+          <span class="status-text">FastAPI Ready</span>
+        </div>
+        <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-icon sun-icon">☀️</span>
+          <span class="theme-icon moon-icon">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <span class="pill-sparkle">✦</span>
+          <span>Machine Learning Wellness Intelligence</span>
+
+        </div>
+        <h1 class="hero-headline">
+          Understand Your <br>
+          <span class="gradient-text">Digital Equilibrium</span>
+        </h1>
+        <p class="hero-description">
+          Analyze how social media routines, sleep patterns, study commitments, and phone unlocks impact your
+          psychological well-being through advanced predictive machine learning.
+        </p>
+
+        <!-- Quick Demo Profiles -->
+        <div class="quick-presets">
+          <span class="presets-label">⚡ Quick Fill Presets:</span>
+          <div class="preset-buttons">
+            <button type="button" class="preset-btn" data-preset="balanced">
+              <span>🌿 Balanced Student</span>
+            </button>
+            <button type="button" class="preset-btn" data-preset="exam">
+              <span>📚 Exam Crunch</span>
+            </button>
+            <button type="button" class="preset-btn" data-preset="scroller">
+              <span>📱 Heavy Scroller</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Stats Widget -->
+      <div class="hero-stats-card glass-panel">
+        <div class="stats-header">
+          <span class="stats-subtitle">SYSTEM BENCHMARK</span>
+          <div class="ai-chip">RandomForest / GBDT</div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-number">5,000+</div>
+            <div class="stat-label">Student Datasets</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">11</div>
+            <div class="stat-label">Feature Inputs</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">10.0</div>
+            <div class="stat-label">Max Wellness Scale</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">&lt; 50ms</div>
+            <div class="stat-label">Instant Inference</div>
+          </div>
+        </div>
+        <div class="stats-footer">
+          <span class="pulse-indicator"></span>
+          <span>Real-time model inference pipeline active</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Workspace Grid -->
+    <div class="workspace-grid">
+      <!-- Input Form Card -->
+      <form id="wellnessForm" class="form-panel glass-panel" novalidate>
+        <div class="panel-header">
+          <div class="header-icon-box">
+            <span>📝</span>
+          </div>
+          <div class="header-text-group">
+            <h2 class="panel-title">Daily Lifestyle & Habit Snapshot</h2>
+            <p class="panel-subtitle">Provide your routine metrics to calculate your personalized wellness score.</p>
+          </div>
+        </div>
+
+        <!-- Section 1: Demographics -->
+        <div class="form-block">
+          <div class="block-title-row">
+            <div class="block-badge">01</div>
+            <div>
+              <h3 class="block-title">Demographics & Academic Profile</h3>
+              <p class="block-desc">Basic student background to contextualize your lifestyle baseline.</p>
+            </div>
+          </div>
+
+          <div class="form-row-grid">
+            <div class="form-group">
+              <label class="input-label" for="field-age">
+                <span>Age</span>
+                <span class="label-hint">10 - 100 yrs</span>
+              </label>
+              <div class="input-container">
+                <input type="number" id="field-age" name="age" min="10" max="100" placeholder="e.g. 21" value="21"
+                  required />
+                <span class="input-unit">years</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="input-label" for="field-gender">
+                <span>Gender</span>
+              </label>
+              <div class="select-container">
+                <select id="field-gender" name="gender" required>
+                  <option value="" disabled>Select Gender</option>
+                  <option value="Male" selected>Male</option>
+                  <option value="Female">Female</option>
+                </select>
+                <span class="select-chevron">▾</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="input-label" for="field-academic">
+                <span>Academic Level</span>
+              </label>
+              <div class="select-container">
+                <select id="field-academic" name="academic_level" required>
+                  <option value="" disabled>Select Academic Level</option>
+                  <option value="High School">High School</option>
+                  <option value="Undergraduate" selected>Undergraduate</option>
+                  <option value="Graduate">Graduate</option>
+                </select>
+                <span class="select-chevron">▾</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="input-label" for="field-purpose">
+                <span>Primary Purpose of Use</span>
+              </label>
+              <div class="select-container">
+                <select id="field-purpose" name="purpose_of_use" required>
+                  <option value="" disabled>What brings you online?</option>
+                  <option value="Education" selected>Education</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="Networking">Networking</option>
+                  <option value="News">News</option>
+                </select>
+                <span class="select-chevron">▾</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Digital Habits -->
+        <div class="form-block">
+          <div class="block-title-row">
+            <div class="block-badge">02</div>
+            <div>
+              <h3 class="block-title">Digital Habits & Stress Response</h3>
+              <p class="block-desc">Screen engagement intensity and subjective pressure level.</p>
+            </div>
+          </div>
+
+          <div class="form-row-grid">
+            <div class="form-group">
+              <label class="input-label" for="field-platform">
+                <span>Most-Used Platform</span>
+              </label>
+              <div class="select-container">
+                <select id="field-platform" name="most_used_platform" required>
+                  <option value="" disabled>Choose your top platform</option>
+                  <option value="Instagram" selected>Instagram</option>
+                  <option value="YouTube">YouTube</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="Snapchat">Snapchat</option>
+                  <option value="Twitter">Twitter / X</option>
+                  <option value="TikTok">TikTok</option>
+                  <option value="WhatsApp">WhatsApp</option>
+                  <option value="WeChat">WeChat</option>
+                  <option value="LINE">LINE</option>
+                  <option value="KakaoTalk">KakaoTalk</option>
+                  <option value="VKontakte">VKontakte</option>
+                </select>
+                <span class="select-chevron">▾</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="input-label" for="field-unlocks">
+                <span>Daily Phone Unlocks</span>
+                <span class="label-hint">Pickups/day</span>
+              </label>
+              <div class="input-container">
+                <input type="number" id="field-unlocks" name="daily_unlocks" min="0" max="500" placeholder="e.g. 45"
+                  value="45" required />
+                <span class="input-unit">times</span>
+              </div>
+            </div>
+
+            <!-- Stress Level Radio Group -->
+            <div class="form-group full-width">
+              <label class="input-label">
+                <span>Perceived Stress Level</span>
+                <span class="label-hint">Self-assessed current stress</span>
+              </label>
+              <div class="stress-radio-group" role="radiogroup" aria-label="Perceived stress level">
+                <label class="stress-card">
+                  <input type="radio" name="stress_level" value="Low" />
+                  <div class="stress-card-inner stress-low">
+                    <span class="stress-indicator"></span>
+                    <span class="stress-title">Low</span>
+                    <span class="stress-desc">Calm & Manageable</span>
+                  </div>
+                </label>
+                <label class="stress-card">
+                  <input type="radio" name="stress_level" value="Medium" checked />
+                  <div class="stress-card-inner stress-medium">
+                    <span class="stress-indicator"></span>
+                    <span class="stress-title">Medium</span>
+                    <span class="stress-desc">Moderate Load</span>
+                  </div>
+                </label>
+                <label class="stress-card">
+                  <input type="radio" name="stress_level" value="High" />
+                  <div class="stress-card-inner stress-high">
+                    <span class="stress-indicator"></span>
+                    <span class="stress-title">High</span>
+                    <span class="stress-desc">Substantial Strain</span>
+                  </div>
+                </label>
+                <label class="stress-card">
+                  <input type="radio" name="stress_level" value="Very High" />
+                  <div class="stress-card-inner stress-very-high">
+                    <span class="stress-indicator"></span>
+                    <span class="stress-title">Very High</span>
+                    <span class="stress-desc">Severe Overwhelm</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: 24-Hour Time Allocation -->
+        <div class="form-block">
+          <div class="block-title-row">
+            <div class="block-badge">03</div>
+            <div>
+              <h3 class="block-title">24-Hour Daily Time Budget</h3>
+              <p class="block-desc">How you divide the hours in an average 24-hour day.</p>
+            </div>
+          </div>
+
+          <!-- Dynamic Hours Bar -->
+          <div class="hours-budget-card" id="hoursBudgetCard" aria-live="polite">
+            <div class="budget-meta-row">
+              <div>
+                <span class="budget-meta-title">Allocated Time</span>
+                <div class="budget-big-counter">
+                  <strong id="hoursUsed">17.0</strong>
+                  <span>/ 24.0 hrs</span>
+                </div>
+              </div>
+              <div class="budget-remaining-badge" id="remainingPill">
+                <span class="badge-dot"></span>
+                <span id="remainingText">7.0 hrs free time</span>
+              </div>
+            </div>
+
+            <!-- Segmented Multi-Color Progress Bar -->
+            <div class="budget-multi-track">
+              <div class="track-segment seg-social" id="segSocial" title="Social Media"></div>
+              <div class="track-segment seg-study" id="segStudy" title="Study Hours"></div>
+              <div class="track-segment seg-exercise" id="segExercise" title="Physical Activity"></div>
+              <div class="track-segment seg-sleep" id="segSleep" title="Sleep"></div>
+            </div>
+
+            <!-- Visual Legend -->
+            <div class="budget-legend">
+              <div class="legend-item"><span class="legend-dot color-social"></span><span>Social (<b
+                    id="lblSocial">2.0h</b>)</span></div>
+              <div class="legend-item"><span class="legend-dot color-study"></span><span>Study (<b
+                    id="lblStudy">6.0h</b>)</span></div>
+              <div class="legend-item"><span class="legend-dot color-exercise"></span><span>Exercise (<b
+                    id="lblExercise">1.0h</b>)</span></div>
+              <div class="legend-item"><span class="legend-dot color-sleep"></span><span>Sleep (<b
+                    id="lblSleep">8.0h</b>)</span></div>
+            </div>
+            <p id="hoursMessage" class="budget-notice-text">Hours are well balanced within the 24-hour daily boundary.
+            </p>
+          </div>
+
+          <!-- Hour Input Fields -->
+          <div class="form-row-grid hour-inputs-grid">
+            <div class="form-group">
+              <label class="input-label" for="field-social">
+                <span class="label-with-icon">
+                  <span class="icon-bubble icon-purple">📱</span>
+                  Social Media Use
+                </span>
+                <span class="label-hint">Daily average</span>
+              </label>
+              <div class="input-container">
+                <input type="number" id="field-social" name="avg_daily_usage_hours" min="0" max="24" step="0.25"
+                  value="2" required />
+                <span class="input-unit">hrs/day</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="input-label" for="field-study">
+                <span class="label-with-icon">
+                  <span class="icon-bubble icon-blue">📚</span>
+                  Study & Classes
+                </span>
+                <span class="label-hint">Academic time</span>
+              </label>
+              <div class="input-container">
+                <input type="number" id="field-study" name="study_hours" min="0" max="24" step="0.25" value="6"
+                  required />
+                <span class="input-unit">hrs/day</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="input-label" for="field-exercise">
+                <span class="label-with-icon">
+                  <span class="icon-bubble icon-green">🏃</span>
+                  Physical Activity
+                </span>
+                <span class="label-hint">Workout & sports</span>
+              </label>
+              <div class="input-container">
+                <input type="number" id="field-exercise" name="physical_activity_hours" min="0" max="24" step="0.25"
+                  value="1" required />
+                <span class="input-unit">hrs/day</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="input-label" for="field-sleep">
+                <span class="label-with-icon">
+                  <span class="icon-bubble icon-indigo">😴</span>
+                  Sleep Duration
+                </span>
+                <span class="label-hint">Per night</span>
+              </label>
+              <div class="input-container">
+                <input type="number" id="field-sleep" name="sleep_hours_per_night" min="0" max="24" step="0.25"
+                  value="8" required />
+                <span class="input-unit">hrs/night</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="validationMessage" class="validation-alert" role="alert" hidden></div>
+        </div>
+
+        <!-- Submit Bar -->
+        <div class="form-footer-bar">
+          <div class="footer-security-note">
+            <span class="sec-icon">🔒</span>
+            <span>Real-time local prediction. Zero third-party telemetry.</span>
+          </div>
+          <button id="submitButton" type="submit" class="submit-action-btn">
+            <span class="btn-text">Generate AI Wellness Score</span>
+            <span class="btn-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Results & AI Insights Dashboard Column -->
+      <aside class="results-column">
+        <!-- Main Prediction Result Card -->
+        <div class="result-dashboard-card glass-panel" id="resultCard">
+          <div class="card-radial-glow" aria-hidden="true"></div>
+
+          <div class="result-card-top">
+            <div class="ai-status-badge" id="resultStatusBadge">
+              <span class="badge-pulsing-dot"></span>
+              <span id="resultStatus">READY TO ANALYZE</span>
+            </div>
+            <span class="model-type-tag">ML v1.0</span>
+          </div>
+
+          <!-- Circular Gauge Score Meter -->
+          <div class="score-gauge-wrapper">
+            <svg class="score-gauge-svg" viewBox="0 0 200 200">
+              <!-- Background Circle -->
+              <circle class="gauge-bg" cx="100" cy="100" r="82" />
+              <!-- Animated Progress Circle -->
+              <circle class="gauge-fill" id="gaugeProgress" cx="100" cy="100" r="82" stroke-dasharray="515"
+                stroke-dashoffset="515" />
+            </svg>
+            <div class="gauge-center-content">
+              <span class="gauge-mini-label">PREDICTED SCORE</span>
+              <div class="gauge-score-value" id="scoreValue">—</div>
+              <span class="gauge-scale-max">out of 10.0</span>
+            </div>
+          </div>
+
+          <!-- Score Category & Assessment -->
+          <div class="score-category-wrap">
+            <div class="category-pill" id="scoreCategoryPill">
+              <span class="cat-emoji" id="catEmoji">✨</span>
+              <span class="cat-title" id="scoreCategory">Awaiting Check-in</span>
+            </div>
+            <p class="score-summary-text" id="resultText">
+              Fill out your daily routine metrics and click <strong>Generate AI Wellness Score</strong> to predict your
+              mental health index.
+            </p>
+          </div>
+
+          <!-- Quick Metrics Breakdown -->
+          <div class="metrics-breakdown-box" id="metricsBreakdown">
+            <div class="metric-row">
+              <span class="m-title">Sleep Health:</span>
+              <span class="m-value" id="mSleepVal">8.0 hrs (Optimal)</span>
+            </div>
+            <div class="metric-row">
+              <span class="m-title">Screen vs Study Ratio:</span>
+              <span class="m-value" id="mRatioVal">0.33 (Balanced)</span>
+            </div>
+            <div class="metric-row">
+              <span class="m-title">Physical Routine:</span>
+              <span class="m-value" id="mPhysVal">1.0 hr (Active)</span>
+            </div>
+          </div>
+
+          <!-- API Error Message Display -->
+          <div id="errorBox" class="api-error-alert" role="alert" hidden></div>
+
+          <!-- Actionable AI Recommendations -->
+          <div class="recommendations-box" id="recommendationsBox">
+            <div class="rec-heading">
+              <span>💡</span>
+              <h4>Actionable Recommendations</h4>
+            </div>
+            <ul class="rec-list" id="recList">
+              <li>Maintain regular sleep schedules around 7–9 hours for peak cognitive retention.</li>
+              <li>Keep physical activity consistent to alleviate daily screen fatigue.</li>
+              <li>Limit non-educational screen time before bedtime to protect circadian rhythm.</li>
+            </ul>
+          </div>
+
+          <!-- Clinical Disclaimer -->
+          <div class="clinical-disclaimer">
+            <span class="disclaimer-icon">ℹ️</span>
+            <p><strong>Educational AI Simulation:</strong> This model provides predictive estimations based on student
+              survey data, not medical or psychological diagnosis.</p>
+          </div>
+        </div>
+
+        <!-- Supportive Habit Tip Card -->
+        <div class="wellness-tip-card glass-panel">
+          <div class="tip-icon-orb">🌱</div>
+          <div class="tip-body">
+            <h4 class="tip-title">Digital Hygiene Tip</h4>
+            <p class="tip-description">Applying the 20-20-20 rule during study sessions significantly reduces digital
+              eyestrain and mental fatigue.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- App Footer -->
+    <footer class="app-footer">
+      <div class="footer-left">
+        <span class="footer-brand">MindPulse ML Project</span>
+        <span class="footer-sep">•</span>
+        <span>Student Social Media & Mental Health Impact Analysis</span>
+      </div>
+      <div class="footer-right">
+        <span>Powered by FastAPI & Machine Learning</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
