@@ -95,7 +95,7 @@ If your dataset CSV is included in the repository, keep its filename and path in
 ### 1. Clone the repository
 
 ```bash
-git clone (https://github.com/chikkuXcode/Mental_health_score)
+git clone https://github.com/chikkuXcode/Mental_health_score.git
 ```
 
 ### 2. Create and activate a virtual environment
