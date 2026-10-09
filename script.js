@@ -2,7 +2,7 @@
  * MindPulse — Interactive Client Logic & Analytics Engine
  */
 
-const API_URL = "https://mental-health-score-vity.onrender.com";
+const API_URL = "https://mental-health-score-vity.onrender.com/predict";
 
 // DOM Elements
 const form = document.getElementById("wellnessForm");
