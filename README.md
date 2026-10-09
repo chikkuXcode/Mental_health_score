@@ -95,8 +95,7 @@ If your dataset CSV is included in the repository, keep its filename and path in
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repository-url>
-cd <your-project-folder>
+git clone (https://github.com/chikkuXcode/Mental_health_score)
 ```
 
 ### 2. Create and activate a virtual environment
@@ -179,13 +178,6 @@ Example response format:
 ```
 
 The number above is only an example of the response format; an actual score depends on the submitted input and the loaded model.
-
-## 🔒 Notes
-
-- Do not commit virtual environments (`myenv/`, `.venv/`), Python caches, or secrets such as `.env` files.
-- Only publish datasets that you have permission to share. Avoid committing sensitive personal data.
-- Pickle/joblib model files should only be loaded from trusted sources.
-- A deployed frontend needs a reachable backend URL; `127.0.0.1` always points to the device making the request, not to your hosted server.
 
 ## 🙌 Acknowledgements
 
